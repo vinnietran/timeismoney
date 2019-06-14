@@ -41,10 +41,29 @@ router.post(
         .isEmpty()
     ]
   ],
-  (req, res) => {
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { month, client, hours, description } = req.body;
+
+    try {
+      const newTime = new Time({
+        month,
+        client,
+        hours,
+        description,
+        user: req.user.id
+      });
+
+      const time = await newTime.save();
+
+      res.json(time);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Server Error");
     }
   }
 );
@@ -52,15 +71,60 @@ router.post(
 // @route        PUT api/time/:id
 // @desc         Update time
 // @access       Private
-router.put("/:id", (req, res) => {
-  res.send("Update users logged time");
+router.put("/:id", auth, async (req, res) => {
+  const { month, client, hours, description } = req.body;
+
+  //Build Time Object
+  const timeFields = {};
+  if (month) timeFields.month = month;
+  if (client) timeFields.client = client;
+  if (hours) timeFields.hours = hours;
+  if (description) timeFields.description = description;
+
+  try {
+    let time = await Time.findById(req.params.id);
+
+    if (!time) return res.status(404).json({ msg: "Time not found" });
+
+    // Make sure user owns time entry
+    if (time.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Not authorized" });
+    }
+
+    time = await Time.findByIdAndUpdate(
+      req.params.id,
+      { $set: timeFields },
+      { new: true }
+    );
+
+    res.json(time);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 // @route        DELETE api/time/:id
 // @desc         Delete time
 // @access       Private
-router.put("/:id", (req, res) => {
-  res.send("Delete time");
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    let time = await Time.findById(req.params.id);
+
+    if (!time) return res.status(404).json({ msg: "Time not found" });
+
+    // Make sure user owns time entry
+    if (time.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Not authorized" });
+    }
+
+    await Time.findByIdAndRemove(req.params.id);
+
+    res.json({ msg: "Contact Removed" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 module.exports = router;
