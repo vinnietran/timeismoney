@@ -18,14 +18,14 @@ router.post('/', (req, res) => {
 // @route        PUT api/time/:id
 // @desc         Update time
 // @access       Private
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     res.send('Update users logged time'); 
 }); 
 
 // @route        DELETE api/time/:id
 // @desc         Delete time
 // @access       Private
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     res.send('Delete time'); 
 }); 
 
