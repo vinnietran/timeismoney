@@ -1,9 +1,15 @@
 import React from 'react'
+import Times from '../time/Time'; 
 
 const Home = () => {
     return (
-        <div>
-            <h1>home</h1>
+        <div className="grid-2">
+           <div>
+               
+           </div>
+           <div>
+               <Times />
+           </div>
         </div>
     )
 }
