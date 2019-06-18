@@ -45,6 +45,9 @@ const TimeState = props => {
     }
 
     // Delete Time
+    const deleteTime = id => {
+        dispatch({ type: DELETE_TIME, payload: id })
+    }
 
     // Set current Time
 
@@ -59,7 +62,9 @@ const TimeState = props => {
     return (
         <timeContext.Provider
             value={{
-                times: state.times
+                times: state.times,
+                addTime,
+                deleteTime
             }}
             >
             {props.children}

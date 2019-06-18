@@ -13,8 +13,13 @@ export default (state, action) => {
     case ADD_TIME:
       return {
         ...state,
-        time: [...state.time, action.payload]
+        times: [...state.times, action.payload]
       };
+      case DELETE_TIME:
+          return{
+              ...state, 
+              times: state.times.filter(time => time.id !== action.payload)
+          }
     default:
       return state;
   }

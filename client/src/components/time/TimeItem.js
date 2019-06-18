@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from 'prop-types';
+import TimeContext from '../../context/time/timeContext'
+
 
 const TimeItem = ({ time }) => {
+  const timeContext = useContext(TimeContext);
+  const {deleteTime} = timeContext
+
   const { id, client, month, hours, description} = time;
 
+    const onDelete = () => {
+     deleteTime(id); 
+
+    }
   return (
     <div className="card bg-light">
       <h3 className="text-primary text-left">
@@ -24,7 +33,7 @@ const TimeItem = ({ time }) => {
       </ul>
       <p>
         <button className="btn btn-dark btn-sm">Edit</button>
-        <button className="btn btn-danger btn-sm">Delete</button>
+        <button className="btn btn-danger btn-sm"onClick={onDelete}>Delete</button>
       </p>
     </div>
   );
