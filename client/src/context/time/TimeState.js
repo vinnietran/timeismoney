@@ -39,6 +39,10 @@ const TimeState = props => {
     const [state, dispatch] = useReducer(timeReducer, initialState); 
 
     // Add Time
+    const addTime = time => {
+        time.id = uuid.v4(); 
+        dispatch({ type: ADD_TIME, payload: time })
+    }
 
     // Delete Time
 
