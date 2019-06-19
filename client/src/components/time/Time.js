@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import TimeItem from "./TimeItem";
 import TimeContext from "../../context/time/timeContext";
 
@@ -14,9 +14,19 @@ const Time = () => {
 
   return (
     <Fragment>
-      {filtered !== null
-        ? filtered.map(time => <TimeItem key={time.id} time={time} />)
-        : times.map(time => <TimeItem key={time.id} time={time} />)}
+      <TransitionGroup>
+        {filtered !== null
+          ? filtered.map(time => (
+              <CSSTransition  timeout={2500} classNames="item">
+                <TimeItem key={time.id} time={time} />
+              </CSSTransition>
+            ))
+          : times.map(time => (
+              <CSSTransition key={time.id} timeout={5000} classNames="item">
+                <TimeItem key={time.id} time={time} />
+              </CSSTransition>
+            ))}
+      </TransitionGroup>
     </Fragment>
   );
 };
