@@ -33,7 +33,10 @@ const TimeState = props => {
             "user": "5d03d0c6d2a94725377d91c7",
             "date": "2019-06-14T18:32:34.037Z",
             "__v": 0
-        }]
+        }
+    ],
+    current: null,
+    filtered: null
     };
 
     const [state, dispatch] = useReducer(timeReducer, initialState); 
@@ -50,21 +53,42 @@ const TimeState = props => {
     }
 
     // Set current Time
+    const setCurrent = time => {
+        dispatch({ type: SET_CURRENT, payload: time })
+    }
 
     // Clear Current Time
+    const clearCurrent = ()=> {
+        dispatch({ type: CLEAR_CURRENT })
+    }
 
     // Update Time
-
+    const updateTime = time => {
+        dispatch({ type: UPDATE_TIME, payload: time })
+    }
     // Filter Time
+    const filterTimes = text => {
+        dispatch({ type: FILTER_TIMES, payload: text })
+    }
 
     // Clear Filter 
-
+    const clearFilter = ()=> {
+        dispatch({ type: CLEAR_FILTER})
+    }
     return (
         <timeContext.Provider
             value={{
                 times: state.times,
+                current: state.current,
+                filtered: state.filtered,
                 addTime,
-                deleteTime
+                deleteTime,
+                setCurrent,
+                clearCurrent,
+                updateTime,
+                filterTimes,
+                clearFilter
+                
             }}
             >
             {props.children}

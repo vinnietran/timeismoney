@@ -1,8 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TimeContext from "../../context/time/timeContext";
 
 const TimeForm = () => {
   const timeContext = useContext(TimeContext);
+
+  const { addTime, updateTime, clearCurrent, current } = timeContext;
+
+  useEffect(() => {
+    if (current !== null) {
+      setTime(current); 
+    } else {
+      setTime({
+        client: "",
+        month: "",
+        hours: "",
+        description: ""
+      });
+    }
+  }, [timeContext, current]);
 
   const [time, setTime] = useState({
     client: "",
@@ -17,7 +32,12 @@ const TimeForm = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    timeContext.addTime(time);
+    if(current === null) {
+      timeContext.addTime(time);
+    } else {
+      updateTime(time);
+    }
+    
     setTime({
       client: "",
       month: "",
@@ -25,9 +45,13 @@ const TimeForm = () => {
       description: ""
     });
   };
+
+  const clearAll = () => {
+    clearCurrent();
+  }
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">Add Time</h2>
+      <h2 className="text-primary">{current ? 'Edit Time Entry' : 'Add New Time Entry'}</h2>
       <input
         type="text"
         placeholder="Enter client name"
@@ -56,12 +80,17 @@ const TimeForm = () => {
         value={description}
         onChange={onChange}
       />
+      <div>
       <input
         type="submit"
         name="submit"
-        value="Submit Time Entry"
+        value={current ? 'Update Time Entry' : 'Submit Time Entry'}
         className="btn btn-primary btn-block"
       />
+      </div>
+      {current && <div>
+        <button className='btn btn-light btn-block'onClick={clearAll}>Clear</button>
+      </div>}
     </form>
   );
 };

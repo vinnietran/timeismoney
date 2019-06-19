@@ -5,13 +5,13 @@ import TimeContext from '../../context/time/timeContext'
 
 const TimeItem = ({ time }) => {
   const timeContext = useContext(TimeContext);
-  const {deleteTime} = timeContext
+  const {deleteTime, setCurrent, clearCurrent} = timeContext
 
   const { id, client, month, hours, description} = time;
 
     const onDelete = () => {
      deleteTime(id); 
-
+      clearCurrent();
     }
   return (
     <div className="card bg-light">
@@ -32,7 +32,7 @@ const TimeItem = ({ time }) => {
         
       </ul>
       <p>
-        <button className="btn btn-dark btn-sm">Edit</button>
+        <button className="btn btn-dark btn-sm"onClick={() => setCurrent(time)}> Edit</button>
         <button className="btn btn-danger btn-sm"onClick={onDelete}>Delete</button>
       </p>
     </div>
