@@ -1,32 +1,49 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
+
 
 const Register = () => {
   const alertContext = useContext(AlertContext); 
+  const authContext = useContext(AuthContext); 
 
 
   const { setAlert } = alertContext;
 
+  const { register, error, clearErrors } = authContext; 
+
+  useEffect(() => {
+    if(error === 'User Already Exists') {
+      setAlert(error, 'danger'); 
+      clearErrors(); 
+    }
+  }, [error]);
+
   const [user, setUser] = useState({
-    fname: "",
-    lname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     password2: ""
   });
 
-  const { fname, lname, email, password, password2 } = user;
+  const { firstName, lastName, email, password, password2 } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
-    if(fname === '' || lname === '' || email === '' || password === '') {
+    if(firstName === '' || lastName === '' || email === '' || password === '') {
       setAlert('Please enter all fields', 'danger'); 
     } else if(password !== password2) {
       setAlert('Passwords do not match', 'danger'); 
     } else {
-      console.log("register submit");
+      register({
+        firstName, 
+        lastName, 
+        email, 
+        password
+      })
     }
     
   };
@@ -39,11 +56,11 @@ const Register = () => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label hmltFor="firstname">First Name</label>
-          <input type="text" name="fname" value={fname} onChange={onChange} required/>
+          <input type="text" name="firstName" value={firstName} onChange={onChange} required/>
         </div>
         <div className="form-group">
           <label hmltFor="lastname">Last Name</label>
-          <input type="text" name="lname" value={lname} onChange={onChange} required/>
+          <input type="text" name="lastName" value={lastName} onChange={onChange} required/>
         </div>
         <div className="form-group">
           <label hmltFor="email">Email</label>
