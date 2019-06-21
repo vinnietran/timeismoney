@@ -1,4 +1,5 @@
 import {
+  GET_TIMES,
   ADD_TIME,
   DELETE_TIME,
   SET_CURRENT,
@@ -6,28 +7,46 @@ import {
   UPDATE_TIME,
   FILTER_TIMES,
   CLEAR_FILTER,
-  TIME_ERROR
+  TIME_ERROR,
+  CLEAR_TIMES
 } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_TIMES:
+      return {
+        ...state,
+        times: action.payload,
+        loading: false
+      };
     case ADD_TIME:
       return {
         ...state,
-        times: [...state.times, action.payload]
+        times: [...state.times, action.payload],
+        loading: false
       };
     case UPDATE_TIME:
       return {
         ...state,
         times: state.times.map(time =>
           time.id === action.payload.id ? action.payload : time
-        )
+        ),
+        loading: false
       };
     case DELETE_TIME:
       return {
         ...state,
-        times: state.times.filter(time => time.id !== action.payload)
+        times: state.times.filter(time => time.id !== action.payload),
+        loading: false
       };
+      case CLEAR_TIMES:
+        return {
+          ...state, 
+          times: null, 
+          filtered: null,
+          error: null, 
+          current: null
+        }
     case SET_CURRENT:
       return {
         ...state,
@@ -52,9 +71,9 @@ export default (state, action) => {
         ...state,
         filtered: null
       };
-      case TIME_ERROR:
+    case TIME_ERROR:
       return {
-        ...state, 
+        ...state,
         error: action.payload
       };
 
