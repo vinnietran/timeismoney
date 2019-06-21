@@ -5,7 +5,8 @@ import {
   CLEAR_CURRENT,
   UPDATE_TIME,
   FILTER_TIMES,
-  CLEAR_FILTER
+  CLEAR_FILTER,
+  TIME_ERROR
 } from "../types";
 
 export default (state, action) => {
@@ -50,6 +51,11 @@ export default (state, action) => {
       return {
         ...state,
         filtered: null
+      };
+      case TIME_ERROR:
+      return {
+        ...state, 
+        error: action.payload
       };
 
     default:

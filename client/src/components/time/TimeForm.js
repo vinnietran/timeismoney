@@ -33,7 +33,7 @@ const TimeForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     if(current === null) {
-      timeContext.addTime(time);
+      addTime(time);
     } else {
       updateTime(time);
     }
