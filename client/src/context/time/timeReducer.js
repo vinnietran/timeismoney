@@ -22,21 +22,21 @@ export default (state, action) => {
     case ADD_TIME:
       return {
         ...state,
-        times: [...state.times, action.payload],
+        times: [ action.payload, ...state.times],
         loading: false
       };
     case UPDATE_TIME:
       return {
         ...state,
         times: state.times.map(time =>
-          time.id === action.payload.id ? action.payload : time
+          time._id === action.payload._id ? action.payload : time
         ),
         loading: false
       };
     case DELETE_TIME:
       return {
         ...state,
-        times: state.times.filter(time => time.id !== action.payload),
+        times: state.times.filter(time => time._id !== action.payload),
         loading: false
       };
       case CLEAR_TIMES:

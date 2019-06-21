@@ -7,10 +7,10 @@ const TimeItem = ({ time }) => {
   const timeContext = useContext(TimeContext);
   const {deleteTime, setCurrent, clearCurrent} = timeContext
 
-  const { id, client, month, hours, description} = time;
+  const { _id, client, month, hours, description} = time;
 
     const onDelete = () => {
-     deleteTime(id); 
+     deleteTime(_id); 
       clearCurrent();
     }
   return (

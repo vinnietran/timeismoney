@@ -63,9 +63,43 @@ const TimeState = props => {
   };
 
   // Delete Time
-  const deleteTime = id => {
-    dispatch({ type: DELETE_TIME, payload: id });
+  const deleteTime = async id => {
+    try {
+      await axios.delete(`/api/time/${id}`);
+
+      dispatch({ type: DELETE_TIME, payload: id });
+    } catch (err) {
+      dispatch({
+        type: TIME_ERROR,
+        payload: err.response.msg
+      });
+    }
   };
+
+    // Update Time
+    const updateTime = async time => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+  
+      try {
+        const res = await axios.put(`/api/time/${time._id}`, time, config);
+  
+        dispatch({ 
+          type: UPDATE_TIME, 
+          payload: res.data
+        });
+
+      } catch (err) {
+        dispatch({
+          type: TIME_ERROR,
+          payload: err.response.msg
+        });
+      }
+      
+    };
 
   // Clear Times
   const clearTimes = () => {
@@ -82,10 +116,7 @@ const TimeState = props => {
     dispatch({ type: CLEAR_CURRENT });
   };
 
-  // Update Time
-  const updateTime = time => {
-    dispatch({ type: UPDATE_TIME, payload: time });
-  };
+
   // Filter Time
   const filterTimes = text => {
     dispatch({ type: FILTER_TIMES, payload: text });
