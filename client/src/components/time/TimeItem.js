@@ -5,6 +5,7 @@ import TimeContext from '../../context/time/timeContext'
 
 const TimeItem = ({ time }) => {
   const timeContext = useContext(TimeContext);
+
   const {deleteTime, setCurrent, clearCurrent} = timeContext
 
   const { _id, client, month, hours, description} = time;
@@ -15,28 +16,38 @@ const TimeItem = ({ time }) => {
       clearCurrent();
     }
   return (
-    <div className="card bg-light" className='"card-panel teal lighten-2"'>
-      <h3 className="blue-text text-darken-2 text-left">
-        {client}{" "}
-        <span style={{ float: 'right' }}className="badge-primary">
-          {" "}
-          {month.charAt(0).toUpperCase() + month.slice(1)}{" "}
-        </span>
-      </h3>
-      <ul className='list'>
-        <div>
-            Hours Worked: {hours} 
-        </div>
-        <div>
-            Description: {description}
-        </div>
+   <li className='collection-item'>
+     <div>
+       {client};
+       {hours};
+       {month};
+       {description};
+     </div>
+   </li>
+
+
+    // <div className="card bg-light" className='"card-panel teal lighten-2"'>
+    //   <h3 className="blue-text text-darken-2 text-left">
+    //     {client}{" "}
+    //     <span style={{ float: 'right' }}className="badge-primary">
+    //       {" "}
+    //       {month.charAt(0).toUpperCase() + month.slice(1)}{" "}
+    //     </span>
+    //   </h3>
+    //   <ul className='list'>
+    //     <div>
+    //         Hours Worked: {hours} 
+    //     </div>
+    //     <div>
+    //         Description: {description}
+    //     </div>
         
-      </ul>
-      <p>
-        <button className="waves-effect waves-teal btn-flat"onClick={() => setCurrent(time)}> Edit</button>
-        <button className="waves-effect waves-teal btn-flat"onClick={onDelete}>Delete</button>
-      </p>
-    </div>
+    //   </ul>
+    //   <p>
+    //     <button className="waves-effect waves-teal btn-flat"onClick={() => setCurrent(time)}> Edit</button>
+    //     <button className="waves-effect waves-teal btn-flat"onClick={onDelete}>Delete</button>
+    //   </p>
+    // </div>
 
 /* <table className='highlight' className='centered'>
 <thead>
