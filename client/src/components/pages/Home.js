@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div className="grid-2">
            <div>
-               <TimeForm />
+               {/* <TimeForm /> */}
            </div>
            <div>
                <TimeFilter />

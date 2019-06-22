@@ -12,7 +12,8 @@ GET_TIMES,
   FILTER_TIMES,
   CLEAR_TIMES,
   CLEAR_FILTER,
-  TIME_ERROR
+  TIME_ERROR, 
+  ADD_HOURS
 } from "../types";
 
 const TimeState = props => {

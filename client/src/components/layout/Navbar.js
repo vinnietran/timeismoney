@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
 import TimeContext from "../../context/time/timeContext";
+import Logo from "../layout/MainLogo";
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
@@ -39,14 +40,14 @@ const Navbar = ({ title, icon }) => {
     </Fragment>
   );
   return (
-    <div className="navbar bg-primary">
-      <h1>
-        <i className={icon} /> {title}
-      </h1>
-      <ul>
-       {isAuthenticated ? authLinks : guestLinks}
+    <nav style={{marginBottom: '30px'}} className='amber darken-1'>
+    <div class="nav-wrapper">
+    <i className={icon} /> {title}
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {isAuthenticated ? authLinks : guestLinks}
       </ul>
     </div>
+  </nav>
   );
 };
 Navbar.propTypes = {
