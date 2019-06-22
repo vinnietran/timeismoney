@@ -22,34 +22,44 @@ const Time = () => {
   }
 
   return (
-    <ul className="collection with-header">
-      <li className="collection-header">
-        <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
-      </li>
-      <Fragment>
-        {times !== null && !loading ? (
-          <TransitionGroup>
-            {filtered !== null
-              ? filtered.map(time => (
-                  <CSSTransition timeout={2500} classNames="item">
-                    <TimeItem key={time._id} time={time} />
-                  </CSSTransition>
-                ))
-              : times.map(time => (
-                  <CSSTransition
-                    key={time._id}
-                    timeout={5000}
-                    classNames="item"
-                  >
-                    <TimeItem key={time._id} time={time} />
-                  </CSSTransition>
-                ))}
-          </TransitionGroup>
-        ) : (
-          <Spinner />
-        )}
-      </Fragment>
-    </ul>
+    <div>
+      <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
+      <div>
+        <table className='highlight' className='center'>
+          <thead>
+            <tr>
+              <td>Client</td>
+              <td>Month</td>
+              <td>Hours Worked</td>
+              <td>Description</td>
+            </tr>
+          </thead>
+          
+           
+              <Fragment>
+                {times !== null && !loading ? (
+                  <tbody>
+                    {filtered !== null
+                      ? filtered.map(time => (
+                          
+                            <TimeItem key={time._id} time={time} />
+                          
+                        ))
+                      : times.map(time => (
+                         
+                            <TimeItem key={time._id} time={time} />
+                         
+                        ))}
+                  </tbody>
+                ) : (
+                  <Spinner />
+                )}
+              </Fragment>
+            
+          
+        </table>
+      </div>
+    </div>
   );
 };
 

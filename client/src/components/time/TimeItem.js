@@ -16,14 +16,25 @@ const TimeItem = ({ time }) => {
       clearCurrent();
     }
   return (
-   <li className='collection-item'>
-     <div>
-       {client};
-       {hours};
-       {month};
-       {description};
-     </div>
-   </li>
+  // <li className='collection-item'>
+    
+  //   {client}
+  //   {month}
+  //   {hours}
+  //   {description}
+  //   </li>
+  
+     
+     
+     <tr>
+       <td>{client}</td>
+       <td>{month}</td>
+       <td>{hours}</td>
+       <td>{description}</td>
+       {/* <td><button className="waves-effect waves-light btn-small"onClick={() => setCurrent(time)}> Edit</button></td>
+      <td><button className="waves-effect waves-light btn-small"onClick={onDelete}>Delete</button></td> */}
+       </tr>
+
 
 
     // <div className="card bg-light" className='"card-panel teal lighten-2"'>
