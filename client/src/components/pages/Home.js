@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import Times from '../time/Time'; 
 import TimeForm from '../time/TimeForm';
+import AddBtn from '../layout/AddBtn'
 import TimeFilter from '../time/TimeFilter';
 import AuthContext from '../../context/auth/authContext'; 
+
 
 const Home = () => {
     const authContext = useContext(AuthContext); 
@@ -15,11 +17,13 @@ const Home = () => {
     return (
         <div className="grid-2">
            <div>
-               {/* <TimeForm /> */}
+               <TimeForm />
            </div>
            <div>
                <TimeFilter />
+               <AddBtn />
                <Times />
+               
            </div>
         </div>
     )

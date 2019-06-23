@@ -50,6 +50,8 @@ const TimeForm = () => {
     clearCurrent();
   }
   return (
+    <div id='add-time-modal' className='modal' style={modalStyle}>
+      <div className='modal-content'>
     <form onSubmit={onSubmit}>
       <h2 className="text-primary">{current ? 'Edit Time Entry' : 'Add New Time Entry'}</h2>
       <input
@@ -92,7 +94,15 @@ const TimeForm = () => {
         <button className='btn btn-light btn-block'onClick={clearAll}>Clear</button>
       </div>}
     </form>
+    </div>
+    </div>
   );
 };
+
+const modalStyle = {
+  width: '75%', 
+  height: '75%'
+}
+
 
 export default TimeForm;

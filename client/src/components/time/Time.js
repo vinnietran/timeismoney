@@ -23,6 +23,7 @@ const Time = () => {
 
   return (
     <div>
+      
       <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
       <div>
         <table className='highlight' className='center'>
@@ -33,9 +34,7 @@ const Time = () => {
               <td>Hours Worked</td>
               <td>Description</td>
             </tr>
-          </thead>
-          
-           
+          </thead>          
               <Fragment>
                 {times !== null && !loading ? (
                   <tbody>
@@ -58,6 +57,7 @@ const Time = () => {
             
           
         </table>
+       
       </div>
     </div>
   );
