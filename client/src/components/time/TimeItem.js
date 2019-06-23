@@ -1,41 +1,54 @@
 import React, { useContext } from "react";
-import PropTypes from 'prop-types';
-import TimeContext from '../../context/time/timeContext'
-
+import PropTypes from "prop-types";
+import TimeContext from "../../context/time/timeContext";
 
 const TimeItem = ({ time }) => {
   const timeContext = useContext(TimeContext);
 
-  const {deleteTime, setCurrent, clearCurrent} = timeContext
+  const { deleteTime, setCurrent, clearCurrent } = timeContext;
 
-  const { _id, client, month, hours, description} = time;
-  
+  const { _id, client, month, hours, description } = time;
 
-    const onDelete = () => {
-     deleteTime(_id); 
-      clearCurrent();
-    }
+  const onDelete = () => {
+    deleteTime(_id);
+    clearCurrent();
+  };
   return (
-  // <li className='collection-item'>
-    
-  //   {client}
-  //   {month}
-  //   {hours}
-  //   {description}
-  //   </li>
-  
-     
-     
-     <tr>
-       <td>{client}</td>
-       <td>{month}</td>
-       <td>{hours}</td>
-       <td>{description}</td>
-       {/* <td><button className="waves-effect waves-light btn-small"onClick={() => setCurrent(time)}> Edit</button></td>
-      <td><button className="waves-effect waves-light btn-small"onClick={onDelete}>Delete</button></td> */}
-       </tr>
+    // <li className='collection-item'>
 
+    //   {client}
+    //   {month}
+    //   {hours}
+    //   {description}
+    //   </li>
 
+    <tr>
+      <td>{client}</td>
+      <td>{month}</td>
+      <td>{hours}</td>
+      <td>{description}</td>
+      <td>
+        <div>
+          <a href="#edit-time-modal">
+            <button
+              className="waves-effect waves-light btn-small"
+              onClick={() => setCurrent(time)}
+            >
+              {" "}
+              Edit
+            </button>
+          </a>
+        </div>
+      </td>
+      <td>
+        <button
+          className="waves-effect waves-light btn-small"
+          onClick={onDelete}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
 
     // <div className="card bg-light" className='"card-panel teal lighten-2"'>
     //   <h3 className="blue-text text-darken-2 text-left">
@@ -47,12 +60,12 @@ const TimeItem = ({ time }) => {
     //   </h3>
     //   <ul className='list'>
     //     <div>
-    //         Hours Worked: {hours} 
+    //         Hours Worked: {hours}
     //     </div>
     //     <div>
     //         Description: {description}
     //     </div>
-        
+
     //   </ul>
     //   <p>
     //     <button className="waves-effect waves-teal btn-flat"onClick={() => setCurrent(time)}> Edit</button>
@@ -60,7 +73,7 @@ const TimeItem = ({ time }) => {
     //   </p>
     // </div>
 
-/* <table className='highlight' className='centered'>
+    /* <table className='highlight' className='centered'>
 <thead>
   <tr>
       <th>Month Completed</th>
@@ -81,15 +94,10 @@ const TimeItem = ({ time }) => {
   </tr>
 </tbody>
 </table> */
-
-
-
-    
   );
- 
 };
 
 TimeItem.propTypes = {
-    time: PropTypes.object.isRequired
-  };
+  time: PropTypes.object.isRequired
+};
 export default TimeItem;

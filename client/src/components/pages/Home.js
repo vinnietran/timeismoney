@@ -3,6 +3,7 @@ import Times from '../time/Time';
 import TimeForm from '../time/TimeForm';
 import AddBtn from '../layout/AddBtn'
 import TimeFilter from '../time/TimeFilter';
+import EditTime from '../time/EditTime';
 import AuthContext from '../../context/auth/authContext'; 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
         <div className="grid-2">
            <div>
                <TimeForm />
+               <EditTime />
            </div>
            <div>
                <TimeFilter />
