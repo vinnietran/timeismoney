@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import TimeItem from "./TimeItem";
 import Spinner from "../layout/Spinner";
 import AuthContext from "../../context/auth/authContext";
@@ -26,7 +25,7 @@ const Time = () => {
       
       <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
       <div>
-        <table className='highlight' className='center'>
+        <table className='highlight'>
           <thead>
             <tr>
               <td>Client</td>

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+
+h2 {
+  color: black; 
+}
+
 /* Global Styles */
 :root {
   --primary-color: #003699;

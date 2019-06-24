@@ -38,6 +38,7 @@ const TimeForm = () => {
       updateTime(time);
     }
 
+
     setTime({
       client: "",
       month: "",
@@ -53,9 +54,9 @@ const TimeForm = () => {
     <div id="add-time-modal" className="modal" style={modalStyle}>
       <div className="modal-content">
         <form onSubmit={onSubmit}>
-          <h2 className="text-primary">
+          <h4 class="center-align">
             {current ? "Edit Time Entry" : "Add New Time Entry"}
-          </h2>
+          </h4>
           <input
             type="text"
             placeholder="Enter client name"
@@ -124,8 +125,8 @@ const TimeForm = () => {
 };
 
 const modalStyle = {
-  width: "75%",
-  height: "75%"
+  width: "50%",
+  height: "50%"
 };
 
 export default TimeForm;
