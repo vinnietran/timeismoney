@@ -23,7 +23,7 @@ const Time = () => {
   return (
     <div>
       
-      <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
+      <h4 className="center">All Employee Times</h4>
       <div>
         <table className='highlight'>
           <thead>

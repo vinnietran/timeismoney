@@ -9,6 +9,8 @@ const TimeItem = ({ time }) => {
 
   const { _id, client, month, hours, description } = time;
 
+  
+
   const onDelete = () => {
     deleteTime(_id);
     clearCurrent();
