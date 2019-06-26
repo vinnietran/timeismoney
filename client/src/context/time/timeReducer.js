@@ -8,12 +8,14 @@ import {
   FILTER_TIMES,
   CLEAR_FILTER,
   TIME_ERROR,
-  CLEAR_TIMES
+  CLEAR_TIMES,
+  GET_ALL_TIMES
 } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
     case GET_TIMES:
+      case GET_ALL_TIMES:
       return {
         ...state,
         times: action.payload,
