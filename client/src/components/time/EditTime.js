@@ -125,7 +125,7 @@ const EditTime = () => {
 
 const modalStyle = {
   width: "75%",
-  height: "75%"
+  height: "100%"
 };
 
 export default EditTime;

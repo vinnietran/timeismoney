@@ -26,6 +26,7 @@ const TimeItem = ({ time }) => {
           <a href="#edit-time-modal">
             <button
               className="waves-effect waves-light btn-small"
+              id='editBTN'
               onClick={() => setCurrent(time)}
             >
               {" "}
@@ -37,6 +38,7 @@ const TimeItem = ({ time }) => {
       <td>
         <button
           className="waves-effect waves-light btn-small"
+          id='deleteBTN'
           onClick={onDelete}
         >
           Delete

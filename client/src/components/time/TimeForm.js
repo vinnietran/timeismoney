@@ -103,6 +103,7 @@ const TimeForm = () => {
             value={description}
             onChange={onChange}
           />
+          <container>
           <div>
             <input
               type="submit"
@@ -111,6 +112,7 @@ const TimeForm = () => {
               className="btn btn-primary btn-block"
             />
           </div>
+          </container>
           {current && (
             <div>
               <button className="btn btn-light btn-block" onClick={clearAll}>
@@ -126,7 +128,7 @@ const TimeForm = () => {
 
 const modalStyle = {
   width: "50%",
-  height: "50%"
+  height: "100%"
 };
 
 export default TimeForm;
