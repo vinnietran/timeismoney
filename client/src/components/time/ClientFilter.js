@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect } from "react";
 import TimeContext from "../../context/time/timeContext";
 
+
 const ClientFilter = () => {
   const timeContext = useContext(TimeContext);
   const text = useRef("");
@@ -21,8 +22,7 @@ const ClientFilter = () => {
     }
   };
   return (
-    <div className='row'>
-      <div className='col s4'>
+    <div className="row">
       <form>
         <select
           ref={text}
@@ -32,7 +32,7 @@ const ClientFilter = () => {
           onChange={onChange}
         >
           <option value="" disabled>
-           Filter work completed by Client
+            Filter work completed by Client
           </option>
           <option value="Reed Smith and Company">Reed Smith and Company</option>
           <option value="McDonald's Farm">McDonald's Farm</option>
@@ -41,7 +41,6 @@ const ClientFilter = () => {
           <option value="Davis Auto">Davis Auto</option>
         </select>
       </form>
-      </div>
     </div>
   );
 };

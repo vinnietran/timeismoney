@@ -22,7 +22,6 @@ const TimeFilter = () => {
   };
   return (
     <div className='row'>
-      <div className='col s4'>
       <form>
         <select
           ref={text}
@@ -49,7 +48,6 @@ const TimeFilter = () => {
         </select>
       </form>
       </div>
-    </div>
   );
 };
 

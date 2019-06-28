@@ -16,8 +16,15 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid-2">
-        <ClientFilter /> <TimeFilter />
+    <div className="grid-9">
+      <div className='row'>
+        <div className='col s4'>
+        <ClientFilter />
+        </div>
+        <div className='col s4'>
+        <TimeFilter />
+        </div>
+        </div>
       <div>
         <TimeForm />
         <EditTime />
