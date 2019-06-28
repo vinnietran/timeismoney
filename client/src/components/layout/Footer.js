@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer class="page-footer">
-        <div class="footer-copyright">
-          <div class="container">
+        <footer className="page-footer amber darken-1">
+        <div className="footer-copyright">
+          <div className="container">
           © TimeIsMoney 2019
           </div>
         </div>

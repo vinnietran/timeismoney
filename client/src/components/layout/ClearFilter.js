@@ -1,4 +1,13 @@
 import React from "react";
+import TimeContext from "../../context/time/timeContext";
+
+const { clearCurrent, current } = TimeContext;
+
+const clearAll = e => {
+  e.preventDefault();
+  clearCurrent();
+  console.log("Fucking fuck");
+};
 
 const ClearFilter = () => {
   return (
@@ -7,16 +16,32 @@ const ClearFilter = () => {
         <div>
           <button
             id="invBtn"
-            class="btn waves-effect waves-light"
+            className="btn waves-effect waves-light"
             type="submit"
             name="action"
-            // onclick={handleClick}
+            onclick={clearAll}
           >
             Clear Filter
-            <i class="material-icons right">filter_list</i>
+            <i className="material-icons right">filter_list</i>
           </button>
         </div>
       </div>
+{/* 
+   {current && (
+            <div>
+              <button className="btn waves-effect waves-light" id="invBtn" onClick={clearAll} >
+                Clear
+              </button>
+            </div>
+          )} */}
+
+      {/* <button
+        className="btn waves-effect waves-light"
+        id="deleteBTN"
+        onClick={clearAll}
+      >
+        Delete
+      </button> */}
     </div>
   );
 };

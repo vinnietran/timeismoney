@@ -14,6 +14,7 @@ const TimeItem = ({ time }) => {
   const onDelete = () => {
     deleteTime(_id);
     clearCurrent();
+    console.log('motherfuck');
   };
   return (
     <tr>
