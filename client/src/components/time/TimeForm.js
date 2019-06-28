@@ -64,7 +64,7 @@ const TimeForm = () => {
             value={client}
             onChange={onChange}
           />
-       
+          
           <select
             type="text"
             placeholder="Enter month worked"

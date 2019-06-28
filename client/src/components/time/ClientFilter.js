@@ -32,7 +32,7 @@ const ClientFilter = () => {
           onChange={onChange}
         >
           <option value="" disabled>
-            Filter work completed by Client
+            Filter work by Client
           </option>
           <option value="Reed Smith and Company">Reed Smith and Company</option>
           <option value="McDonald's Farm">McDonald's Farm</option>

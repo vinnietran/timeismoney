@@ -31,7 +31,7 @@ const TimeFilter = () => {
           onChange={onChange}
         >
           <option value="" disabled>
-           Fileter work completed by Month
+           Filter by Month
           </option>
           <option value="January">January</option>
           <option value="February">February</option>

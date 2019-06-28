@@ -6,6 +6,7 @@ import TimeFilter from "../time/TimeFilter";
 import EditTime from "../time/EditTime";
 import AuthContext from "../../context/auth/authContext";
 import ClientFilter from "../time/ClientFilter";
+import DescriptionFilter from "../time/DescriptionFilter";
 
 const Home = () => {
   const authContext = useContext(AuthContext);
@@ -18,12 +19,19 @@ const Home = () => {
   return (
     <div className="grid-9">
       <div className='row'>
-        <div className='col s4'>
+      <div className='col s1'></div>
+        <div className='col s3'>
         <ClientFilter />
         </div>
-        <div className='col s4'>
+        <div className='col s1'></div>
+        <div className='col s3'>
         <TimeFilter />
         </div>
+        <div className='col s1'></div>
+        <div className='col s3'>
+        <DescriptionFilter />
+        </div>
+       
         </div>
       <div>
         <TimeForm />
