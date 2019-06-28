@@ -3,7 +3,7 @@ import axios from "axios";
 import timeContext from "./timeContext";
 import timeReducer from "./timeReducer";
 import {
-GET_TIMES,
+  GET_TIMES,
   ADD_TIME,
   DELETE_TIME,
   SET_CURRENT,
@@ -12,7 +12,9 @@ GET_TIMES,
   FILTER_TIMES,
   CLEAR_TIMES,
   CLEAR_FILTER,
-  TIME_ERROR
+  TIME_ERROR,
+  GET_ALL_TIMES,
+  ADD_HOURS
 } from "../types";
 
 const TimeState = props => {
@@ -27,13 +29,24 @@ const TimeState = props => {
 
   // Get times
   const getTimes = async () => {
-
     try {
       const res = await axios.get("/api/time");
 
-      dispatch({ type: GET_TIMES, 
-        payload: res.data
-     });
+      dispatch({ type: GET_TIMES, payload: res.data });
+    } catch (err) {
+      dispatch({
+        type: TIME_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
+
+  // Get all times
+  const getAllTimes = async () => {
+    try {
+      const res = await axios.get("/api/time/all");
+
+      dispatch({ type: GET_ALL_TIMES, payload: res.data });
     } catch (err) {
       dispatch({
         type: TIME_ERROR,
@@ -76,30 +89,28 @@ const TimeState = props => {
     }
   };
 
-    // Update Time
-    const updateTime = async time => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      };
-  
-      try {
-        const res = await axios.put(`/api/time/${time._id}`, time, config);
-  
-        dispatch({ 
-          type: UPDATE_TIME, 
-          payload: res.data
-        });
-
-      } catch (err) {
-        dispatch({
-          type: TIME_ERROR,
-          payload: err.response.msg
-        });
+  // Update Time
+  const updateTime = async time => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
       }
-      
     };
+
+    try {
+      const res = await axios.put(`/api/time/${time._id}`, time, config);
+
+      dispatch({
+        type: UPDATE_TIME,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: TIME_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
 
   // Clear Times
   const clearTimes = () => {
@@ -115,7 +126,6 @@ const TimeState = props => {
   const clearCurrent = () => {
     dispatch({ type: CLEAR_CURRENT });
   };
-
 
   // Filter Time
   const filterTimes = text => {
@@ -141,8 +151,8 @@ const TimeState = props => {
         filterTimes,
         clearFilter,
         getTimes,
+        getAllTimes,
         clearTimes
-
       }}
     >
       {props.children}

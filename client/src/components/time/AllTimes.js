@@ -8,11 +8,11 @@ const Time = () => {
   const authContext = useContext(AuthContext);
   const timeContext = useContext(TimeContext);
 
-  const { times, filtered, getTimes, loading } = timeContext;
+  const { times, filtered, getAllTimes, loading } = timeContext;
   const { user } = authContext;
 
   useEffect(() => {
-    getTimes();
+    getAllTimes();
     // eslint-disable-next-line
   }, []);
 
@@ -23,15 +23,15 @@ const Time = () => {
   return (
     <div>
       
-      <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
+      <h4 className="center">All Employee Times</h4>
       <div>
-        <table  className='centered'>
-          <thead className='centered'>
+        <table className='highlight'>
+          <thead>
             <tr>
-              <td><h5>Client</h5></td>
-              <td><h5>Month</h5></td>
-              <td><h5>Hours Worked</h5></td>
-              <td><h5>Description</h5></td>
+              <td>Client</td>
+              <td>Month</td>
+              <td>Hours Worked</td>
+              <td>Description</td>
             </tr>
           </thead>          
               <Fragment>
@@ -52,15 +52,12 @@ const Time = () => {
                 ) : (
                   <Spinner />
                 )}
-               
               </Fragment>
             
           
         </table>
        
       </div>
-      <div className='row'></div>
-
     </div>
   );
 };

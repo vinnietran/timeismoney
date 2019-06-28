@@ -1,28 +1,48 @@
-import React, { useContext, useEffect } from 'react'
-import Times from '../time/Time'; 
-import TimeForm from '../time/TimeForm';
-import TimeFilter from '../time/TimeFilter';
-import AuthContext from '../../context/auth/authContext'; 
+import React, { useContext, useEffect } from "react";
+import Times from "../time/Time";
+import TimeForm from "../time/TimeForm";
+import AddBtn from "../layout/AddBtn";
+import TimeFilter from "../time/TimeFilter";
+import EditTime from "../time/EditTime";
+import AuthContext from "../../context/auth/authContext";
+import ClientFilter from "../time/ClientFilter";
+import DescriptionFilter from "../time/DescriptionFilter";
 
 const Home = () => {
-    const authContext = useContext(AuthContext); 
+  const authContext = useContext(AuthContext);
 
-    useEffect(() => {
-        authContext.loadUser();
-        // eslint-disable-next-line
-    }, [])
+  useEffect(() => {
+    authContext.loadUser();
+    // eslint-disable-next-line
+  }, []);
 
-    return (
-        <div className="grid-2">
-           <div>
-               <TimeForm />
-           </div>
-           <div>
-               <TimeFilter />
-               <Times />
-           </div>
+  return (
+    <div className="grid-9">
+      <div className='row'>
+      <div className='col s1'></div>
+        <div className='col s3'>
+        <ClientFilter />
         </div>
-    )
-}
+        <div className='col s1'></div>
+        <div className='col s3'>
+        <TimeFilter />
+        </div>
+        <div className='col s1'></div>
+        <div className='col s3'>
+        <DescriptionFilter />
+        </div>
+       
+        </div>
+      <div>
+        <TimeForm />
+        <EditTime />
+      </div>
+      <div>
+        <AddBtn />
+        <Times />
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

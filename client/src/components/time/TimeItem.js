@@ -1,45 +1,54 @@
 import React, { useContext } from "react";
-import PropTypes from 'prop-types';
-import TimeContext from '../../context/time/timeContext'
-
+import PropTypes from "prop-types";
+import TimeContext from "../../context/time/timeContext";
 
 const TimeItem = ({ time }) => {
   const timeContext = useContext(TimeContext);
-  const {deleteTime, setCurrent, clearCurrent} = timeContext
 
-  const { _id, client, month, hours, description} = time;
+  const { deleteTime, setCurrent, clearCurrent } = timeContext;
 
-    const onDelete = () => {
-     deleteTime(_id); 
-      clearCurrent();
-    }
+  const { _id, client, month, hours, description } = time;
+
+  
+
+  const onDelete = () => {
+    deleteTime(_id);
+    clearCurrent();
+  };
   return (
-    <div className="card bg-light">
-      <h3 className="text-primary text-left">
-        {client}{" "}
-        <span style={{ float: 'right' }}className="badge-primary">
-          {" "}
-          {month.charAt(0).toUpperCase() + month.slice(1)}{" "}
-        </span>
-      </h3>
-      <ul className='list'>
-        <div>
-            Hours Worked: {hours}
+    <tr>
+      <td>{client}</td>
+      <td>{month}</td>
+      <td>{hours}</td>
+      <td>{description}</td>
+      <td>
+        <div className>
+          <a href="#edit-time-modal">
+            <button
+              className="btn-floating btn-large blue darken-2 modal-trigger"
+              id='editBTN'
+              onClick={() => setCurrent(time)}
+            >
+              {" "}
+              Edit
+            </button>
+          </a>
         </div>
-        <div>
-            Description: {description}
-        </div>
-        
-      </ul>
-      <p>
-        <button className="btn btn-dark btn-sm"onClick={() => setCurrent(time)}> Edit</button>
-        <button className="btn btn-danger btn-sm"onClick={onDelete}>Delete</button>
-      </p>
-    </div>
+      </td>
+      <td>
+        <button
+          className="waves-effect waves-light btn-small"
+          id='deleteBTN'
+          onClick={onDelete}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
   );
 };
 
 TimeItem.propTypes = {
-    time: PropTypes.object.isRequired
-  };
+  time: PropTypes.object.isRequired
+};
 export default TimeItem;

@@ -19,6 +19,20 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
+// @route        GET api/time/all
+// @desc         GET all users time
+// @access       Private
+router.get("/all", auth, async (req, res) => {
+  
+  try {
+    const time = await Time.find().sort({ date: -1 });
+    res.json(time);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route        POST api/time
 // @desc         Add users time
 // @access       Private

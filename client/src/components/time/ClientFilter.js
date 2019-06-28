@@ -1,7 +1,8 @@
 import React, { useContext, useRef, useEffect } from "react";
 import TimeContext from "../../context/time/timeContext";
 
-const TimeFilter = () => {
+
+const ClientFilter = () => {
   const timeContext = useContext(TimeContext);
   const text = useRef("");
 
@@ -21,7 +22,7 @@ const TimeFilter = () => {
     }
   };
   return (
-    <div className='row'>
+    <div className="row">
       <form>
         <select
           ref={text}
@@ -31,24 +32,17 @@ const TimeFilter = () => {
           onChange={onChange}
         >
           <option value="" disabled>
-           Filter by Month
+            Filter work by Client
           </option>
-          <option value="January">January</option>
-          <option value="February">February</option>
-          <option value="March">March</option>
-          <option value="April">April</option>
-          <option value="May">May</option>
-          <option value="June">June</option>
-          <option value="July">July</option>
-          <option value="August">August</option>
-          <option value="September">September</option>
-          <option value="October">October</option>
-          <option value="November">November</option>
-          <option value="December">December</option>
+          <option value="Reed Smith and Company">Reed Smith and Company</option>
+          <option value="McDonald's Farm">McDonald's Farm</option>
+          <option value="WeWork">WeWork</option>
+          <option value="Sheetz">Sheetz</option>
+          <option value="Davis Auto">Davis Auto</option>
         </select>
       </form>
-      </div>
+    </div>
   );
 };
 
-export default TimeFilter;
+export default ClientFilter;
