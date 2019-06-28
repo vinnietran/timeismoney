@@ -22,11 +22,12 @@ const Home = () => {
                <EditTime />
            </div>
            <div>
-               <TimeFilter />
+               
                <AddBtn />
                <Times />
                
            </div>
+           <TimeFilter />
         </div>
     )
 }
