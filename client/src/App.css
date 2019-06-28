@@ -25,3 +25,16 @@
   background-color: blue;
   width: 100px;
 }
+
+#clear,
+#submit
+{
+  background-color: blue;
+  width: 650px;
+}
+
+h5{
+  font: bold;
+  text-align: center
+  
+}

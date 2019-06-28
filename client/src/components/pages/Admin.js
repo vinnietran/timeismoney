@@ -5,6 +5,7 @@ import AddBtn from '../layout/AddBtn'
 import TimeFilter from '../time/TimeFilter';
 import EditTime from '../time/EditTime';
 import AuthContext from '../../context/auth/authContext'; 
+import GenerateInvoice from "../layout/GenerateInvoice";
 
 
 const Home = () => {
@@ -28,6 +29,12 @@ const Home = () => {
                
            </div>
            <TimeFilter />
+        <div className='row'>
+          <div className='col s12'> 
+              <GenerateInvoice />
+            
+        </div>
+        </div>
         </div>
     )
 }

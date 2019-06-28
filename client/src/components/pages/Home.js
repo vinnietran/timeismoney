@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Times from "../time/Time";
 import TimeForm from "../time/TimeForm";
 import AddBtn from "../layout/AddBtn";
+import EditBtn from "../layout/EditBtn";
 import TimeFilter from "../time/TimeFilter";
 import EditTime from "../time/EditTime";
 import AuthContext from "../../context/auth/authContext";
@@ -39,6 +40,7 @@ const Home = () => {
       </div>
       <div>
         <AddBtn />
+        <EditBtn />
         <Times />
       </div>
     </div>

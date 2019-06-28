@@ -22,10 +22,10 @@ const TimeItem = ({ time }) => {
       <td>{hours}</td>
       <td>{description}</td>
       <td>
-        <div>
+        <div className>
           <a href="#edit-time-modal">
             <button
-              className="waves-effect waves-light btn-small"
+              className="btn-floating btn-large blue darken-2 modal-trigger"
               id='editBTN'
               onClick={() => setCurrent(time)}
             >

@@ -25,13 +25,13 @@ const Time = () => {
       
       <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
       <div>
-        <table className='highlight'>
-          <thead>
+        <table  className='centered'>
+          <thead className='centered'>
             <tr>
-              <td>Client</td>
-              <td>Month</td>
-              <td>Hours Worked</td>
-              <td>Description</td>
+              <td><h5>Client</h5></td>
+              <td><h5>Month</h5></td>
+              <td><h5>Hours Worked</h5></td>
+              <td><h5>Description</h5></td>
             </tr>
           </thead>          
               <Fragment>
@@ -52,12 +52,15 @@ const Time = () => {
                 ) : (
                   <Spinner />
                 )}
+               
               </Fragment>
             
           
         </table>
        
       </div>
+      <div className='row'></div>
+
     </div>
   );
 };

@@ -38,7 +38,6 @@ const TimeForm = () => {
       updateTime(time);
     }
 
-
     setTime({
       client: "",
       month: "",
@@ -57,69 +56,91 @@ const TimeForm = () => {
           <h4 class="center-align">
             {current ? "Edit Time Entry" : "Add New Time Entry"}
           </h4>
-          <input
-            type="text"
-            placeholder="Enter client name"
-            name="client"
-            value={client}
-            onChange={onChange}
-          />
-          
-          <select
-            type="text"
-            placeholder="Enter month worked"
-            name="month"
-            value={month}
-            onChange={onChange}
-          >
-            <option value="" disabled>
-              Select Month Work Completed
-            </option>
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-
-          <input
-            type="text"
-            placeholder="Enter number of hours worked"
-            name="hours"
-            value={hours}
-            onChange={onChange}
-          />
-          <input
-            type="text"
-            placeholder="Enter a brief description of completed work"
-            name="description"
-            value={description}
-            onChange={onChange}
-          />
-          <container>
-          <div>
+          <div className="row">
             <input
-              type="submit"
-              name="submit"
-              value={current ? "Update Time Entry" : "Submit Time Entry"}
-              className="btn btn-primary btn-block"
+              type="text"
+              placeholder="Enter client name"
+              name="client"
+              value={client}
+              onChange={onChange}
             />
           </div>
-          </container>
-          {current && (
-            <div>
-              <button className="btn btn-light btn-block" onClick={clearAll}>
-                Clear
-              </button>
+
+          <div className="row">
+            <select
+              type="text"
+              placeholder="Enter month worked"
+              name="month"
+              value={month}
+              onChange={onChange}
+            >
+              <option value="" disabled>
+                Select Month Work Completed
+              </option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Enter number of hours worked"
+              name="hours"
+              value={hours}
+              onChange={onChange}
+            />
+          </div>
+
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Enter a brief description of completed work"
+              name="description"
+              value={description}
+              onChange={onChange}
+            />
+          </div>
+
+          <container>
+            <div className="row" />
+            <div className="row">
+              <div className="col s12">
+                <input
+                  type="submit"
+                  name="submit"
+                  value={current ? "Update Time Entry" : "Submit Time Entry"}
+                  className="btn btn-primary btn-block"
+                  id="submit"
+                />
+              </div>
             </div>
-          )}
+            <div className="row">
+              <div className="col s12">
+                {current && (
+                  <div>
+                    <button
+                      className="btn btn-light btn-block"
+                      id="clear"
+                      onClick={clearAll}
+                    >
+                      Clear
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </container>
         </form>
       </div>
     </div>
