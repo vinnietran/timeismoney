@@ -24,7 +24,7 @@ const ClientFilter = () => {
   return (
     <div className="row">
       <form>
-        <select
+        <select 
           ref={text}
           type="text"
           placeholder="Filter by Month"

@@ -3,6 +3,9 @@ import TimeItem from "./TimeItem";
 import Spinner from "../layout/Spinner";
 import AuthContext from "../../context/auth/authContext";
 import TimeContext from "../../context/time/timeContext";
+import ClientFilter from "../time/ClientFilter";
+import DescriptionFilter from "../time/DescriptionFilter";
+import TimeFilter from "../time/TimeFilter";
 
 const Time = () => {
   const authContext = useContext(AuthContext);
@@ -24,14 +27,30 @@ const Time = () => {
     <div>
       
       <h4 className="center">{user && user.firstName + "'s"} Time Entries</h4>
+      <div className='row timeTbl'>
+      <div className='col s1'></div>
+        <div className='col s3'>
+        <ClientFilter />
+        </div>
+        <div className='col s1'></div>
+        <div className='col s3'>
+        <TimeFilter />
+        </div>
+        <div className='col s1'></div>
+        <div className='col s3'>
+        <DescriptionFilter />
+        </div>
+        </div>
       <div>
-        <table  className='centered'>
+        <table className='centered z-depth-5 timeTbl'>
           <thead className='centered'>
             <tr>
               <td><h5>Client</h5></td>
               <td><h5>Month</h5></td>
               <td><h5>Hours Worked</h5></td>
               <td><h5>Description</h5></td>
+              <td><h5>Edit</h5></td>
+              <td><h5>Delete</h5></td>
             </tr>
           </thead>          
               <Fragment>
@@ -59,8 +78,7 @@ const Time = () => {
         </table>
        
       </div>
-      <div className='row'></div>
-
+    
     </div>
   );
 };
