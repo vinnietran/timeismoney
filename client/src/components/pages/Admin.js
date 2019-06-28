@@ -7,6 +7,7 @@ import EditTime from "../time/EditTime";
 import AuthContext from "../../context/auth/authContext";
 import GenerateInvoice from "../layout/GenerateInvoice";
 import ClientFilter from "../time/ClientFilter";
+import Footer from "../layout/Footer";
 import DescriptionFilter from "../time/DescriptionFilter";
 
 const Home = () => {
@@ -41,7 +42,11 @@ const Home = () => {
 <div>
   <Times />
 </div>
+<div className='col s12'>
+ <Footer />
+ </div>
 </div>
+
   );
 };
 
