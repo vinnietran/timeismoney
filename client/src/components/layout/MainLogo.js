@@ -5,7 +5,7 @@ export default () => (
   <Fragment>
     <img
       src={logo}
-      style={{ width: '20px', margin: 'auto', display: 'block' }}
+      style={{ width: '65px', margin: 'auto', display: 'block' }}
       alt='Loading...'
     />
   </Fragment>

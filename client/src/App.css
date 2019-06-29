@@ -63,3 +63,12 @@ main {
 .page-footer{
   margin-top: 60px;
 }
+
+h1{
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
+#navTime{
+  font-family: 'Indie Flower', cursive;
+}

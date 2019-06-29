@@ -8,6 +8,7 @@ import Login from "./components/auth/Login";
 import Alerts from "./components/layout/Alerts";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import Logo from '../../client/src/components/layout/MainLogo';
 
 import TimeState from "./context/time/TimeState";
 import AuthState from "./context/auth/AuthState";
@@ -36,8 +37,10 @@ const App = () => {
             <body>
             <main>
               <Fragment>
+                
                 <Navbar />
                 <div className="container">
+                <Logo />
                   <Alerts />
                   <Switch>
                     <PrivateRoute exact path="/" component={Home} />

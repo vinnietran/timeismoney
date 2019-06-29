@@ -43,8 +43,9 @@ const Navbar = ({ title, icon }) => {
   );
   return (
     <nav style={{marginBottom: '30px'}} className='amber darken-1'>
-    <div class="nav-wrapper">
-    <i className={icon} /> {title}
+    <div className="nav-wrapper">
+    <div className="brand-logo" id='navTime'>TimeIsMoney</div>
+    <i className={icon} />  {title}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       {isAuthenticated ? authLinks : guestLinks}
       </ul>
@@ -58,7 +59,8 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  title: "Time Is Money",
-  icon: "fas fa-id-card-alt"
+
+  icon:  "fas fa-envelope-open-dollar"
+
 };
 export default Navbar;
