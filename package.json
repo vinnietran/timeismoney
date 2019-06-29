@@ -11,17 +11,10 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vinnietran/timeismoney.git"
-  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vinnietran/timeismoney/issues"
-  },
-  "homepage": "https://github.com/vinnietran/timeismoney#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.1.0",
