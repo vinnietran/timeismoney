@@ -9,12 +9,9 @@ const TimeItem = ({ time }) => {
 
   const { _id, client, month, hours, description } = time;
 
-  
-
   const onDelete = () => {
     deleteTime(_id);
     clearCurrent();
-    console.log('motherfuck');
   };
   return (
     <tr>
@@ -24,22 +21,22 @@ const TimeItem = ({ time }) => {
       <td>{description}</td>
       <td>
         <div className>
-          <a href="#edit-time-modal">
-            <button
-              className="btn-floating btn-large blue darken-2 modal-trigger"
-              id='editBTN'
-              onClick={() => setCurrent(time)}
-            >
-              {" "}
-              Edit
-            </button>
-          </a>
+          <button
+            a
+            href="#add-time-modal"
+            className="waves-effect waves-light btn-small modal-trigger"
+            id="editBTN"
+            onClick={() => setCurrent(time)}
+          >
+            {" "}
+            Edit
+          </button>
         </div>
       </td>
       <td>
         <button
           className="waves-effect waves-light btn-small"
-          id='deleteBTN'
+          id="deleteBTN"
           onClick={onDelete}
         >
           Delete
