@@ -1,11 +1,9 @@
 import React from "react";
 
-function handleClick() {
-  // e.preventDefault();
-  console.log("The link was clicked.");
-  // var url =
-  //   "https://drive.google.com/open?id=1I7Pd0hnfoPfNRI7HYia5scZtExht_1Av";
-  // window.location(url);
+function handleClick(e) {
+  e.preventDefault();
+  window.location.href='https://drive.google.com/open?id=1mLQxG_cUpvgSrkDw4rEdaSFwpQeT6DwX'
+  console.log('The link was clicked.');
 }
 
 const InvoiceBtn = () => {
@@ -16,12 +14,20 @@ const InvoiceBtn = () => {
           class="btn waves-effect waves-light"
           type="submit"
           name="action"
-          onclick={handleClick}
+          onClick={handleClick}
         >
           Generate Invoice
           <i class="material-icons right">assignment</i>
         </button>
       </div>
+      {/* <div>
+        <li><a class="grey-text text-lighten-3"
+                href="https://drive.google.com/open?id=1mLQxG_cUpvgSrkDw4rEdaSFwpQeT6DwX" className='button' target="blank">My Resumé</a>
+            </li>
+        <button onclick="window.location.href='https://drive.google.com/open?id=1mLQxG_cUpvgSrkDw4rEdaSFwpQeT6DwX'">
+          Continue
+        </button>
+      </div> */}
     </div>
   );
 };

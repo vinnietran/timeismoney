@@ -6,6 +6,7 @@ import TimeContext from "../../context/time/timeContext";
 import ClientFilter from "../time/ClientFilter";
 import DescriptionFilter from "../time/DescriptionFilter";
 import TimeFilter from "../time/TimeFilter";
+import ClearFilter from "../layout/ClearFilter";
 
 const Time = () => {
   const authContext = useContext(AuthContext);
@@ -40,6 +41,13 @@ const Time = () => {
         <div className='col s3'>
         <DescriptionFilter />
         </div>
+        </div>
+        <div className='row'>
+        <div className='col s4'></div>
+        <div className='col s4'>
+        <ClearFilter />
+        </div>
+        <div className='col s4'></div>
         </div>
       <div>
         <table className='centered z-depth-5 timeTbl'>
