@@ -48,8 +48,11 @@ const Login = (props) => {
   return (
     <div className="form-container">
       <h1>
-        Account Login
+        TimeIsMoney
       </h1>
+      <h3>
+        Account Login
+      </h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label hmltFor="email">Email</label>
@@ -65,8 +68,10 @@ const Login = (props) => {
             required
           />
         </div>
+        <div className='row'></div>
         <input
           type="submit"
+          id='invBtn'
           value="Login"
           className="btn btn-primary btn-block"
         />

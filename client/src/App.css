@@ -38,3 +38,37 @@ h5{
   text-align: center
   
 }
+
+.timeTbl {
+  border: 3px solid lightblue;
+}
+
+#invBtn {
+  width: 100%;
+  color: white;
+  background-color: #003699;
+  margin-right: 5000px
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer{
+  margin-top: 60px;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+}
+
+#navTime{
+  font-family: 'Indie Flower', cursive;
+}

@@ -56,8 +56,11 @@ const Register = (props) => {
   return (
     <div className="form-container">
       <h1>
-        Account <span className="text-primary">Register</span>
+        TimeIsMoney
       </h1>
+      <h3>
+        Account Register
+      </h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label hmltFor="firstname">First Name</label>
@@ -93,8 +96,10 @@ const Register = (props) => {
             minLength='6'
           />
         </div>
+        <div className='row'></div>
         <input
           type="submit"
+          id='invBtn'
           value="Register"
           className="btn btn-primary btn-block"
         />

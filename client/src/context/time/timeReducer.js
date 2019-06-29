@@ -65,7 +65,7 @@ export default (state, action) => {
         filtered: state.times.filter(time => {
           const regex = new RegExp(`${action.payload}`, "gi");
           //change this to employee name
-          return time.month.match(regex) || time.client.match(regex);
+          return time.month.match(regex) || time.client.match(regex) || time.description.match(regex) ;
         })
       };
     case CLEAR_FILTER:
