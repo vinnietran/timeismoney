@@ -11,6 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     authContext.loadUser();
+    //allowing access from anywhere
     // eslint-disable-next-line
   }, []);
 
