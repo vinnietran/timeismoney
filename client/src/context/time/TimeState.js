@@ -14,7 +14,7 @@ import {
   CLEAR_FILTER,
   TIME_ERROR,
   GET_ALL_TIMES,
-  ADD_HOURS
+ FILTER_TIMES_MONTH
 } from "../types";
 
 const TimeState = props => {
@@ -132,6 +132,11 @@ const TimeState = props => {
     dispatch({ type: FILTER_TIMES, payload: text });
   };
 
+   // Filter Time
+   const filterTimesMonth = text => {
+    dispatch({ type: FILTER_TIMES_MONTH, payload: text });
+  };
+
   // Clear Filter
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
@@ -152,7 +157,8 @@ const TimeState = props => {
         clearFilter,
         getTimes,
         getAllTimes,
-        clearTimes
+        clearTimes,
+        filterTimesMonth
       }}
     >
       {props.children}

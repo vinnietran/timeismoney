@@ -19,3 +19,4 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const GET_ALL_TIMES = 'GET_ALL_TIMES';
+export const FILTER_TIMES_MONTH = 'FILTER_TIMES_MONTH';

@@ -3,19 +3,19 @@ import TimeContext from "../../context/time/timeContext";
 
 const TimeFilter = () => {
   const timeContext = useContext(TimeContext);
-  const text = useRef("");
+  const text = useRef('');
 
-  const { filterTimes, clearFilter, filtered } = timeContext;
+  const { filterTimesMonth, clearFilter, filtered } = timeContext;
 
   useEffect(() => {
     if (filtered === null) {
-      text.current.value = "";
+      text.current.value = '';
     }
   });
 
   const onChange = e => {
     if (text.current.value !== "") {
-      filterTimes(e.target.value);
+      filterTimesMonth(e.target.value);
     } else {
       clearFilter();
     }

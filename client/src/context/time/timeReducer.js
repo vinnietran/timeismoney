@@ -9,7 +9,8 @@ import {
   CLEAR_FILTER,
   TIME_ERROR,
   CLEAR_TIMES,
-  GET_ALL_TIMES
+  GET_ALL_TIMES,
+  FILTER_TIMES_MONTH
 } from "../types";
 
 export default (state, action) => {
@@ -65,7 +66,16 @@ export default (state, action) => {
         filtered: state.times.filter(time => {
           const regex = new RegExp(`${action.payload}`, "gi");
           //change this to employee name
-          return time.month.match(regex) || time.client.match(regex) || time.description.match(regex) ;
+          return  time.client.match(regex) || time.description.match(regex) ;
+        })
+      };
+      case FILTER_TIMES_MONTH:
+      return {
+        ...state,
+        filtered: state.times.filter(time => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          //change this to employee name
+          return time.month.match(regex)
         })
       };
     case CLEAR_FILTER:
