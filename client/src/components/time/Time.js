@@ -31,6 +31,7 @@ const Time = () => {
       <div className='row timeTbl'>
       <div className='col s1'></div>
         <div className='col s3'>
+
         <ClientFilter />
         </div>
         <div className='col s1'></div>

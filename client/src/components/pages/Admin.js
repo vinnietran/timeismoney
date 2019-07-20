@@ -5,7 +5,7 @@ import EditTime from "../time/EditTime";
 import AuthContext from "../../context/auth/authContext";
 
 
-const Home = () => {
+const Admin = () => {
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Admin;

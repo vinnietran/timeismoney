@@ -21,6 +21,8 @@ const ClientFilter = () => {
       clearFilter();
     }
   };
+
+ 
   return (
     <div className="row">
       <form>
