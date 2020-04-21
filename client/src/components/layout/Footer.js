@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="page-footer amber darken-1">
         <div className="footer-copyright">
           <div className="container">
-          © TimeIsMoney 2019
+          © TimeIsMoney 2020
           </div>
         </div>
       </footer>
