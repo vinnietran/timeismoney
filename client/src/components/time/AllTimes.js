@@ -8,6 +8,8 @@ import TimeContext from "../../context/time/timeContext";
 import ClientFilter from "../time/ClientFilter";
 import DescriptionFilter from "../time/DescriptionFilter";
 import TimeFilter from "../time/TimeFilter";
+//import Aggregate from "../../aggregate"; 
+
 
 const Time = () => {
   const authContext = useContext(AuthContext);
@@ -15,6 +17,8 @@ const Time = () => {
 
   const { times, filtered, getAllTimes, loading } = timeContext;
   const { user } = authContext;
+
+  //Aggregate.countTest()
 
   useEffect(() => {
     getAllTimes();
@@ -94,7 +98,9 @@ const Time = () => {
        
       </div>
     </div>
+    
   );
+
 };
 
 export default Time;
